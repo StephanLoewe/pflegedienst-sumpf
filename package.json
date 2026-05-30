@@ -8,8 +8,8 @@
     "preview": "astro preview"
   },
   "dependencies": {
-    "astro": "^5.0.0",
     "@tailwindcss/vite": "^4.3.0",
+    "astro": "6.4",
     "tailwindcss": "^4.3.0"
   }
 }
