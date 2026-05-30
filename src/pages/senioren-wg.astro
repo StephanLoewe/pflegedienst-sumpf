@@ -1,0 +1,178 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import Label from '../components/ui/Label.astro';
+import SectionHeader from '../components/ui/SectionHeader.astro';
+import IconCard from '../components/ui/IconCard.astro';
+
+const konzeptCards = [
+  {
+    title: 'Gemeinschaft & Alltag',
+    description: 'Gemeinsam essen, klönen, stricken – die Gemeinschaftsflächen gehören allen.',
+    iconSrc: '/icons/icon-community.svg',
+  },
+  {
+    title: 'Selbstbestimmt leben',
+    description: 'Ins Bett wann man möchte, aufstehen wann man ausgeschlafen ist – Ihre Regeln.',
+    iconSrc: '/icons/icon-heart-brand.svg',
+  },
+  {
+    title: '24h Rundum-Betreuung',
+    description: 'Rund um die Uhr betreut – wir haben für jeden genügend Zeit.',
+    iconSrc: '/icons/icon-care.svg',
+  },
+];
+
+const wohlbefindenCards = [
+  {
+    title: 'Vollständig barrierefrei',
+    description: 'Fahrstuhl vom Keller bis ins oberste Geschoss – das gesamte Haus ist barrierefrei.',
+    iconSrc: '/icons/icon-accessible.svg',
+  },
+  {
+    title: 'Dachterrasse & Wintergarten',
+    description: 'Mit Blick in die Natur oder in der Wärme des Wintergartens gesellig zusammensitzen.',
+    iconSrc: '/icons/icon-rooftop.svg',
+  },
+  {
+    title: 'Ihr Zimmer nach Wunsch',
+    description: 'Gestalten Sie Ihr Zimmer mit eigenen Möbeln – TV, Internet und Malerarbeiten nach Wunsch.',
+    iconSrc: '/icons/icon-wg.svg',
+  },
+  {
+    title: 'Haustiere willkommen',
+    description: 'Nach Absprache sind Katzen, Hunde oder Vögel herzlich willkommen.',
+    iconSrc: '/icons/icon-animal.svg',
+  },
+  {
+    title: 'Garten & Hochbeete',
+    description: 'Sitzecken, Hochbeete für eigenes Gemüse und gemeinsame Grillabende erwarten Sie.',
+    iconSrc: '/icons/icon-heart-brand.svg',
+  },
+  {
+    title: 'Gemeinsame Küche',
+    description: 'Gemeinsam kochen und backen – mit so viel Eigenständigkeit wie möglich.',
+    iconSrc: '/icons/icon-community.svg',
+  },
+];
+
+const vertraege = [
+  {
+    num: '01',
+    title: 'Mietvertrag',
+    desc: 'Mit dem Vermieter – unabhängig von Pflege und Betreuung.',
+  },
+  {
+    num: '02',
+    title: '24h Präsenzkraftvertrag',
+    desc: 'Für die rund-um-die-Uhr Betreuung und Unterstützung im Alltag.',
+  },
+  {
+    num: '03',
+    title: 'Pflegevertrag nach Wunsch',
+    desc: 'Pflegeleistungen werden direkt mit Ihrer Pflegekasse abgerechnet.',
+  },
+];
+---
+
+<BaseLayout
+  title="Senioren-WG Sweet Home"
+  description="Senioren-Wohngemeinschaft Sweet Home in Valluhn – liebevolles Zuhause für bis zu 8 pflegebedürftige Senioren mit 24h-Betreuung, Dachterrasse und Fahrstuhl."
+>
+  <Header activePage="senioren-wg" />
+
+  <!-- HERO -->
+  <section class="flex justify-center" aria-label="Seiteneinleitung">
+    <div class="bg-petrol-dark max-w-content w-full pt-[100px] px-4 lg:px-[120px] pb-0">
+      <div class="flex flex-col gap-4 items-center py-20 text-center">
+        <Label variant="sweet">Dorfstraße 2 · 19246 Valluhn</Label>
+        <h1 class="font-headline font-extrabold text-h1 text-text-inverted leading-[1.15] max-w-[700px]">
+          Sweet Home – Ihr neues Zuhause in Valluhn
+        </h1>
+        <p class="font-body text-large text-text-inverted leading-[1.7] max-w-[690px]">
+          Besser gemeinsam statt einsam. Unser liebevoll gestaltetes Zuhause für bis zu 8 pflegebedürftige Senioren – mit 24h-Betreuung täglich.
+        </p>
+        <div class="pt-8">
+          <a href="/kontakt" class="btn btn--sweet text-[15px] px-7 py-[14px]">
+            Freie Plätze anfragen
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KONZEPT -->
+  <section class="flex justify-center" aria-labelledby="konzept-heading">
+    <div class="max-w-content w-full px-4 lg:px-[120px] py-20">
+      <div class="flex flex-col gap-12">
+        <SectionHeader
+          label="Unser Konzept"
+          labelVariant="sweet"
+          title="Leben wie man möchte – mit Unterstützung wenn nötig"
+          titleVariant="petrol"
+          description="Selbstbestimmung, Gemeinschaft und individuelle Pflege in einem liebevollen Zuhause."
+          align="left"
+          maxWidth="max-w-[848px]"
+        />
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {konzeptCards.map(card => (
+            <IconCard title={card.title} description={card.description} iconSrc={card.iconSrc} />
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WOHLBEFINDEN -->
+  <section class="flex justify-center" aria-labelledby="wohlbefinden-heading">
+    <div class="bg-bg-sweet max-w-content w-full px-4 lg:px-[120px] py-20">
+      <div class="flex flex-col gap-12 items-center">
+        <SectionHeader
+          label="Das bieten wir"
+          title="Alles für Ihr Wohlbefinden"
+          description="Komfortabel, barrierefrei und nach Ihren Wünschen gestaltet."
+        />
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
+          {wohlbefindenCards.map(card => (
+            <IconCard title={card.title} description={card.description} iconSrc={card.iconSrc} />
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VERTRÄGE -->
+  <section class="flex justify-center" aria-labelledby="vertraege-heading">
+    <div class="max-w-content w-full px-4 lg:px-[120px] py-20 flex flex-col lg:flex-row gap-16 items-start">
+      <div class="flex flex-col gap-6 flex-1">
+        <Label variant="sweet">Flexible Vertragsgestaltung</Label>
+        <h2 id="vertraege-heading" class="font-headline font-extrabold text-h2 text-text leading-[1.2]">
+          Drei Verträge – getrennt und transparent
+        </h2>
+        <p class="font-body text-large text-text-muted leading-[1.7]">
+          Pflegeleistungen werden bis zum Höchstbetrag mit der Pflegekasse abgerechnet.
+        </p>
+        <a href="/kontakt" class="btn btn--outline-dark text-[15px] px-7 py-[14px] w-fit">
+          Beratungsgespräch vereinbaren
+        </a>
+      </div>
+
+      <div class="flex flex-col gap-4 flex-1">
+        {vertraege.map(v => (
+          <div class="bg-bg-sweet border border-sweet-tint rounded-xl flex items-center gap-5 px-6 py-5">
+            <div class="flex items-center justify-center w-10 h-10 bg-petrol rounded-xl shrink-0">
+              <span class="font-body font-bold text-small text-white">{v.num}</span>
+            </div>
+            <div>
+              <p class="font-body font-semibold text-base text-[#1a1a1a]">{v.title}</p>
+              <p class="font-body text-small text-text-muted w-[380px] max-w-full">{v.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>

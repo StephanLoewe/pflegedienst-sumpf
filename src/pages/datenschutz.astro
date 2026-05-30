@@ -1,0 +1,121 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import Label from '../components/ui/Label.astro';
+---
+
+<BaseLayout
+  title="Datenschutzerklärung"
+  description="Datenschutzerklärung des Pflegedienstes Sumpf gemäß DSGVO."
+>
+  <Header />
+
+  <section class="flex flex-col gap-4 items-center py-20 px-4 lg:px-[120px] text-center" aria-label="Seiteneinleitung">
+    <Label variant="petrol">Rechtliches</Label>
+    <h1 class="font-headline font-extrabold text-h1 text-petrol-accessible leading-[1.15]">
+      Datenschutzerklärung
+    </h1>
+    <p class="font-body text-large text-text-muted leading-[1.7] max-w-[600px]">
+      Informationen zur Verarbeitung personenbezogener Daten gemäß Art. 13, 14 DSGVO
+    </p>
+  </section>
+
+  <section class="flex justify-center" aria-label="Datenschutz Inhalt">
+    <div class="max-w-content w-full px-4 lg:px-[120px] pb-[100px]">
+      <div class="max-w-[720px] flex flex-col gap-10">
+
+        <div class="flex flex-col gap-3">
+          <h2 class="font-body font-bold text-h4 text-text">1. Verantwortlicher</h2>
+          <p class="font-body text-medium text-text-muted leading-[1.7]">
+            Verantwortlich für die Datenverarbeitung auf dieser Website ist:<br /><br />
+            Pflegedienst Sumpf<br />
+            Bahnhofstraße 9<br />
+            19246 Zarrentin am Schaalsee<br /><br />
+            Telefon: <a href="tel:038851389484" class="text-petrol hover:underline">038851-389484</a><br />
+            E-Mail: <a href="mailto:pflegedienst-sumpf@outlook.de" class="text-petrol hover:underline">pflegedienst-sumpf@outlook.de</a>
+          </p>
+        </div>
+
+        <div class="flex flex-col gap-3">
+          <h2 class="font-body font-bold text-h4 text-text">2. Allgemeines zur Datenverarbeitung</h2>
+          <p class="font-body text-medium text-text-muted leading-[1.7]">
+            Wir nehmen den Schutz Ihrer persönlichen Daten sehr ernst und behandeln Ihre personenbezogenen Daten vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung.<br /><br />
+            Diese Website ist eine rein statische Informationsseite. Es werden keine Nutzerkonten angelegt, keine Tracking-Cookies gesetzt und keine Analyse-Dienste wie Google Analytics verwendet.
+          </p>
+        </div>
+
+        <div class="flex flex-col gap-3">
+          <h2 class="font-body font-bold text-h4 text-text">3. Datenerfassung beim Besuch der Website</h2>
+          <h3 class="font-body font-semibold text-base text-text mt-2">Server-Logfiles</h3>
+          <p class="font-body text-medium text-text-muted leading-[1.7]">
+            Der Hosting-Anbieter dieser Website erhebt und speichert automatisch Informationen in sogenannten Server-Logfiles, die Ihr Browser automatisch übermittelt. Dies sind:<br /><br />
+            – Browsertyp und -version<br />
+            – Verwendetes Betriebssystem<br />
+            – Referrer-URL<br />
+            – Hostname des zugreifenden Rechners<br />
+            – Uhrzeit der Serveranfrage<br />
+            – IP-Adresse<br /><br />
+            Diese Daten werden nicht mit anderen Datenquellen zusammengeführt. Die Erfassung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Der Websitebetreiber hat ein berechtigtes Interesse an der technisch fehlerfreien Darstellung und Optimierung seiner Website.
+          </p>
+        </div>
+
+        <div class="flex flex-col gap-3">
+          <h2 class="font-body font-bold text-h4 text-text">4. Kontaktaufnahme</h2>
+          <p class="font-body text-medium text-text-muted leading-[1.7]">
+            Wenn Sie uns per E-Mail oder Telefon kontaktieren, werden Ihre Angaben zur Bearbeitung Ihrer Anfrage und für den Fall von Anschlussfragen bei uns gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.<br /><br />
+            Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (Vertragsanbahnung) bzw. Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Beantwortung von Anfragen). Daten werden gelöscht, sobald sie für die Erreichung des Zwecks ihrer Erhebung nicht mehr erforderlich sind, spätestens nach 3 Jahren.
+          </p>
+        </div>
+
+        <div class="flex flex-col gap-3">
+          <h2 class="font-body font-bold text-h4 text-text">5. Schriftarten</h2>
+          <p class="font-body text-medium text-text-muted leading-[1.7]">
+            Diese Website verwendet die Schriftarten „Manrope" und „DM Sans", die als lokale Dateien auf unserem Server eingebunden sind. Es findet keine Verbindung zu externen Schriftartenservern (z. B. Google Fonts) statt. Beim Laden der Seite werden daher keine Daten an Dritte übertragen.
+          </p>
+        </div>
+
+        <div class="flex flex-col gap-3">
+          <h2 class="font-body font-bold text-h4 text-text">6. Ihre Rechte</h2>
+          <p class="font-body text-medium text-text-muted leading-[1.7]">
+            Sie haben gegenüber uns folgende Rechte hinsichtlich der Sie betreffenden personenbezogenen Daten:
+          </p>
+          <ul class="flex flex-col gap-2">
+            {[
+              'Recht auf Auskunft (Art. 15 DSGVO)',
+              'Recht auf Berichtigung (Art. 16 DSGVO)',
+              'Recht auf Löschung (Art. 17 DSGVO)',
+              'Recht auf Einschränkung der Verarbeitung (Art. 18 DSGVO)',
+              'Recht auf Datenübertragbarkeit (Art. 20 DSGVO)',
+              'Recht auf Widerspruch gegen die Verarbeitung (Art. 21 DSGVO)',
+              'Recht auf Widerruf einer erteilten Einwilligung (Art. 7 Abs. 3 DSGVO)',
+            ].map(right => (
+              <li class="flex gap-3 items-start">
+                <div class="w-2 h-2 bg-petrol-dark/40 rounded-[4px] shrink-0 mt-[6px]"></div>
+                <p class="font-body text-medium text-text-muted leading-[1.7]">{right}</p>
+              </li>
+            ))}
+          </ul>
+          <p class="font-body text-medium text-text-muted leading-[1.7]">
+            Zur Ausübung Ihrer Rechte wenden Sie sich bitte an: <a href="mailto:pflegedienst-sumpf@outlook.de" class="text-petrol hover:underline">pflegedienst-sumpf@outlook.de</a><br /><br />
+            Außerdem haben Sie das Recht, sich bei einer Datenschutz-Aufsichtsbehörde über die Verarbeitung Ihrer personenbezogenen Daten durch uns zu beschweren. Zuständig ist der Landesbeauftragte für Datenschutz und Informationsfreiheit Mecklenburg-Vorpommern.
+          </p>
+        </div>
+
+        <div class="flex flex-col gap-3">
+          <h2 class="font-body font-bold text-h4 text-text">7. Datensicherheit</h2>
+          <p class="font-body text-medium text-text-muted leading-[1.7]">
+            Diese Website nutzt aus Sicherheitsgründen und zum Schutz der Übertragung vertraulicher Inhalte eine SSL- bzw. TLS-Verschlüsselung. Eine verschlüsselte Verbindung erkennen Sie daran, dass die Adresszeile des Browsers von „http://" auf „https://" wechselt und an dem Schloss-Symbol in Ihrer Browserzeile.
+          </p>
+        </div>
+
+        <p class="font-body text-small text-text-muted/60 leading-[1.7] pt-4 border-t border-border">
+          Stand: Mai 2024
+        </p>
+
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>

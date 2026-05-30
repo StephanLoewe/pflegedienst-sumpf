@@ -1,0 +1,43 @@
+---
+interface Props {
+  title: string;
+  subtitle?: string;
+  description: string;
+  bulletItems?: string[];
+  iconSrc?: string;
+  class?: string;
+}
+
+const {
+  title,
+  subtitle,
+  description,
+  bulletItems = [],
+  iconSrc = '/icons/heart.svg',
+  class: className = '',
+} = Astro.props;
+---
+
+<div class={`icon-card ${className}`}>
+  <div class="icon-card__icon">
+    <img src={iconSrc} alt="" width="32" height="32" aria-hidden="true" />
+  </div>
+
+  <div>
+    <p class="icon-card__title">{title}</p>
+    {subtitle && <p class="icon-card__subtitle">{subtitle}</p>}
+  </div>
+
+  <p class="icon-card__desc">{description}</p>
+
+  {bulletItems.length > 0 && (
+    <ul class="icon-card__list" role="list">
+      {bulletItems.map(item => (
+        <li class="bullet-item">
+          <span class="bullet-item__dot" aria-hidden="true"></span>
+          <span class="bullet-item__text">{item}</span>
+        </li>
+      ))}
+    </ul>
+  )}
+</div>

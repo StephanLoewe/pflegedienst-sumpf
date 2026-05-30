@@ -1,0 +1,16 @@
+---
+interface Props {
+  variant?: 'petrol' | 'sweet' | 'dark';
+  class?: string;
+}
+const { variant = 'petrol', class: className = '' } = Astro.props;
+
+const variantClass = {
+  petrol: 'label--petrol',
+  sweet: 'label--sweet',
+  dark: 'label--dark',
+}[variant];
+---
+<span class={`label ${variantClass} ${className}`}>
+  <slot />
+</span>

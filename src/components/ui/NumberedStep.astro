@@ -1,0 +1,21 @@
+---
+interface Props {
+  badge: string;
+  title: string;
+  description: string;
+  bgColor?: string;
+  class?: string;
+}
+
+const { badge, title, description, bgColor = 'bg-bg-shade', class: className = '' } = Astro.props;
+---
+
+<div class={`numbered-step flex-1 ${bgColor} ${className}`}>
+  <div class="numbered-step__badge">
+    <span class="numbered-step__badge-text">{badge}</span>
+  </div>
+  <div class="flex flex-col gap-1">
+    <p class="numbered-step__title">{title}</p>
+    <p class="numbered-step__desc">{description}</p>
+  </div>
+</div>

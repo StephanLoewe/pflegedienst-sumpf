@@ -1,0 +1,155 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import Label from '../components/ui/Label.astro';
+import SectionHeader from '../components/ui/SectionHeader.astro';
+import FeatureRow from '../components/ui/FeatureRow.astro';
+
+const leistungsSections = [
+  {
+    label: '§ SGB XI/V',
+    title: 'Grundpflege',
+    items: [
+      'Körperpflege: Waschen, Duschen, Baden, Zahnpflege, Kämmen, Rasieren',
+      'Ernährung: Zubereitung, Hilfe bei der Nahrungsaufnahme',
+      'Mobilität: Lagerung, Hilfe beim Aufstehen und Zubettgehen, Gehen, Transfer',
+    ],
+    imagePlaceholder: 'Bild Grundpflege',
+    imageLeft: false,
+    bgColor: '',
+  },
+  {
+    label: '§ SGB XI/V',
+    title: 'Behandlungspflege',
+    items: [
+      'Medikamentengabe und Überwachung der Einnahme',
+      'Wundversorgung: Verbandswechsel, Wundbeobachtung',
+      'Katheterpflege, Injektionen, Blutzuckermessung',
+      'Kompressionsstrümpfe an-/ausziehen',
+    ],
+    imagePlaceholder: 'Bild Behandlungspflege',
+    imageLeft: true,
+    bgColor: 'bg-bg-shade',
+  },
+  {
+    label: '§ SGB XI/V',
+    title: 'Hauswirtschaftliche Versorgung',
+    items: [
+      'Reinigung der Wohnung',
+      'Wäschepflege: Waschen, Bügeln, Einräumen',
+      'Einkäufe erledigen',
+      'Zubereitung einfacher Mahlzeiten',
+    ],
+    imagePlaceholder: 'Bild Hauswirtschaftliche Versorgung',
+    imageLeft: false,
+    bgColor: '',
+  },
+  {
+    label: '§ SGB XI/V',
+    title: 'Betreuungs- & Entlastungsleistungen',
+    items: [
+      'Spaziergänge, Vorlesen, Gespräche für Lebensqualität',
+      'Begleitung zu Terminen, Beschäftigungsangebote',
+      'Beaufsichtigung bei Weglaufgefährdung',
+      'Tagesstrukturierung und Aktivierung',
+    ],
+    imagePlaceholder: 'Bild Betreuungs- & Entlastungsleistungen',
+    imageLeft: true,
+    bgColor: 'bg-bg-shade',
+  },
+];
+
+const finanzierung = [
+  {
+    paragraph: 'SS 36 SGB XI',
+    title: 'Grundpflege',
+    desc: 'Versorgung aller Pflegegrade gemäss den gesetzlichen Vorgaben.',
+  },
+  {
+    paragraph: 'SS 37 SGB V',
+    title: 'Behandlungspflege',
+    desc: 'Ärztlich verordnete Pflegemaßnahmen werden von der Krankenkasse übernommen.',
+  },
+  {
+    paragraph: 'SS 45 SGB XI',
+    title: 'Betreuungsleistungen',
+    desc: 'Beratung und Anleitung von Angehörigen sowie zusätzliche Betreuungsleistungen.',
+  },
+  {
+    paragraph: 'Beratung',
+    title: 'Pflegegradantrag',
+    desc: 'Wir begleiten Sie bei Beantragung und Höherstufung Ihres Pflegegrads.',
+  },
+];
+---
+
+<BaseLayout
+  title="Leistungen"
+  description="Unsere Pflegeleistungen: Grundpflege, Behandlungspflege, hauswirtschaftliche Versorgung und Betreuung – alles aus einer Hand, abgerechnet mit Ihrer Pflegekasse."
+>
+  <Header activePage="leistungen" />
+
+  <!-- SUBHERO -->
+  <section class="flex flex-col gap-4 items-center py-20 px-4 lg:px-[120px] text-center" aria-label="Seiteneinleitung">
+    <Label variant="sweet">Dorfstraße 2 · 19246 Valluhn</Label>
+    <h1 class="font-headline font-extrabold text-h1 text-petrol-accessible leading-[1.15] max-w-[720px]">
+      Rundum versorgt – alles aus einer Hand
+    </h1>
+    <p class="font-body text-large text-text-muted leading-[1.7] max-w-[690px]">
+      Von der Grundpflege bis zur medizinischen Behandlung und hauswirtschaftlichen Versorgung – ein umfassendes Leistungsspektrum, abgerechnet direkt mit Ihrer Pflegekasse.
+    </p>
+  </section>
+
+  <!-- LEISTUNGS-SECTIONS -->
+  {leistungsSections.map(section => (
+    <section class={`flex justify-center ${section.bgColor}`} aria-labelledby={`leistung-${section.title.replace(/\s+/g, '-').toLowerCase()}`}>
+      <div class={`max-w-content w-full px-4 lg:px-[120px] py-20 flex flex-col lg:flex-row gap-20 items-center ${section.imageLeft ? 'lg:flex-row-reverse' : ''}`}>
+        <div class="flex flex-col gap-3 flex-1">
+          <Label variant="petrol">{section.label}</Label>
+          <h2
+            id={`leistung-${section.title.replace(/\s+/g, '-').toLowerCase()}`}
+            class="font-body font-bold text-h3 text-text leading-[1.3] max-w-[520px]"
+          >
+            {section.title}
+          </h2>
+          <ul class="flex flex-col gap-1 mt-2" role="list">
+            {section.items.map(item => (
+              <FeatureRow text={item} />
+            ))}
+          </ul>
+        </div>
+        <div class="bg-petrol-tint h-[380px] rounded-card lg:w-[480px] shrink-0 flex items-center justify-center">
+          <p class="font-body text-sm text-petrol-dark/50 text-center px-8">{section.imagePlaceholder}</p>
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <!-- FINANZIERUNG -->
+  <section class="flex justify-center" aria-labelledby="finanzierung-heading">
+    <div class="bg-petrol-dark max-w-content w-full px-4 lg:px-[120px] py-[100px]">
+      <div class="flex flex-col gap-12 items-center">
+        <SectionHeader
+          label="Pflegekasse & Finanzierung"
+          labelVariant="dark"
+          title="Wir rechnen direkt mit Ihrer Pflegekasse ab"
+          titleVariant="white"
+          description="Wir klären für Sie ab, ob die Voraussetzungen für Pflegeleistungen nach den Gesetzesvorgaben erfüllt sind."
+          descVariant="white"
+        />
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full max-w-[1200px]">
+          {finanzierung.map(item => (
+            <div class="bg-white/10 border border-white/15 rounded-xl p-7 flex flex-col gap-2">
+              <p class="font-body font-semibold text-xsmall text-white/50 uppercase tracking-wider">{item.paragraph}</p>
+              <p class="font-headline font-bold text-[18px] text-white">{item.title}</p>
+              <p class="font-body text-small text-white/60 leading-[1.6]">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>

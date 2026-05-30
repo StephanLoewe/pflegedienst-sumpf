@@ -1,0 +1,158 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import Label from '../components/ui/Label.astro';
+
+const pflegedienstRows = [
+  { label: 'ADRESSE', value: 'Bahnhofstraße 9, 19246 Zarrentin', href: undefined, icon: '/icons/icon-location.svg' },
+  { label: 'MOBIL', value: '038851-389484 | 038851-389485', href: 'tel:038851389484', icon: '/icons/icon-phone.svg' },
+  { label: 'E-MAIL', value: 'pflegedienst-sumpf@outlook.de', href: 'mailto:pflegedienst-sumpf@outlook.de', icon: '/icons/icon-mail.svg' },
+];
+
+const wgRows = [
+  { label: 'ADRESSE', value: 'Dorfstraße 2, 19246 Valluhn', href: undefined, icon: '/icons/icon-location.svg' },
+  { label: 'MOBIL', value: '0178-672 88 20', href: 'tel:017867288820', icon: '/icons/icon-phone.svg' },
+  { label: 'E-MAIL', value: 'wg-valluhn@outlook.de', href: 'mailto:wg-valluhn@outlook.de', icon: '/icons/icon-mail.svg' },
+];
+
+const inquiryTopics = [
+  'Ambulante Pflege zu Hause',
+  'Platz in der Senioren-WG',
+  'Pflegegrad beantragen',
+  '1:1 Intensivpflege',
+  'Allgemeine Frage',
+];
+---
+
+<BaseLayout
+  title="Kontakt & Standorte"
+  description="Kontakt zum Pflegedienst Sumpf: Pflegeberatung, Heimplatz in der Senioren-WG Sweet Home, Pflegegradantrag. Wir sind täglich erreichbar – auch im Notfall."
+>
+  <Header activePage="kontakt" />
+
+  <!-- SUBHERO -->
+  <section class="flex flex-col gap-4 items-center py-20 px-4 lg:px-[120px] text-center" aria-label="Seiteneinleitung">
+    <Label variant="petrol">Kontakt & Beratung</Label>
+    <h1 class="font-headline font-extrabold text-h1 text-petrol-accessible leading-[1.15]">
+      Wir sind für Sie da
+    </h1>
+    <p class="font-body text-large text-text-muted leading-[1.7] max-w-[690px]">
+      Frau Sumpf und ihr Team antworten schnell und persönlich. Ob Pflegeberatung, freie Zimmer in der WG oder individuelle Anfragen – sprechen Sie uns an.
+    </p>
+  </section>
+
+  <!-- KONTAKT-KARTEN -->
+  <section class="flex justify-center" aria-labelledby="kontakt-karten-heading">
+    <div class="w-full max-w-content px-4 lg:px-[120px] pt-20 pb-0 flex flex-col gap-8 items-center">
+
+      <!-- Two cards -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full max-w-[1200px]">
+
+        <!-- Pflegedienst Sumpf -->
+        <div class="bg-petrol-accessible rounded-card p-10 flex flex-col gap-5">
+          <div class="flex flex-col gap-2">
+            <p class="font-body font-semibold text-xsmall text-white/50 uppercase tracking-[0.88px]">Ambulante Pflege</p>
+            <p class="font-body font-bold text-h4 text-white leading-[1.4]">Pflegedienst Sumpf</p>
+          </div>
+          {pflegedienstRows.map(row => (
+            <div class="flex gap-4 items-center">
+              <div class="w-11 h-11 bg-white/20 rounded-component shrink-0 flex items-center justify-center">
+                <img src={row.icon} alt="" width="20" height="20" aria-hidden="true" class="brightness-0 invert" />
+              </div>
+              <div class="flex flex-col gap-1">
+                <p class="font-body text-xsmall text-white/50 uppercase tracking-[0.66px]">{row.label}</p>
+                {row.href ? (
+                  <a href={row.href} class="font-body text-medium text-text-inverted leading-[1.6] hover:text-white/80 transition-colors">
+                    {row.value}
+                  </a>
+                ) : (
+                  <p class="font-body text-medium text-text-inverted leading-[1.6]">{row.value}</p>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <!-- WG Sweet Home -->
+        <div class="bg-bg-sweet rounded-card p-10 flex flex-col gap-5">
+          <div class="flex flex-col gap-2">
+            <p class="font-body font-semibold text-xsmall text-sweet uppercase tracking-[0.88px]">Senioren-Wohngemeinschaft Valluhn</p>
+            <p class="font-body font-bold text-h4 text-sweet-dark leading-[1.4]">WG Sweet Home</p>
+          </div>
+          {wgRows.map(row => (
+            <div class="flex gap-4 items-center">
+              <div class="w-11 h-11 bg-petrol-tint/60 rounded-component shrink-0 flex items-center justify-center">
+                <img src={row.icon} alt="" width="20" height="20" aria-hidden="true" />
+              </div>
+              <div class="flex flex-col gap-1">
+                <p class="font-body text-xsmall text-text-muted uppercase tracking-[0.66px]">{row.label}</p>
+                {row.href ? (
+                  <a href={row.href} class="font-body text-medium text-text-muted leading-[1.6] hover:text-text transition-colors">
+                    {row.value}
+                  </a>
+                ) : (
+                  <p class="font-body text-medium text-text-muted leading-[1.6]">{row.value}</p>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+
+      </div>
+
+      <!-- Notfall-Banner -->
+      <div class="bg-bg-sweet border border-sweet/20 rounded-xl flex flex-col md:flex-row gap-6 items-center px-10 py-8 w-full max-w-[1200px]">
+        <div class="flex flex-col gap-1 flex-1">
+          <p class="font-body font-bold text-sweet text-xsmall uppercase tracking-wider">Notfallnummer – 24 Stunden erreichbar</p>
+          <p class="font-headline font-bold text-[40px] text-text leading-[1.1]">038851-289776</p>
+          <p class="font-body text-medium text-text-muted">Für alle Notfälle rund um die Uhr – Frau Sumpf und ihr Team sind für Sie da.</p>
+        </div>
+        <a href="tel:038851289776" class="btn btn--sweet text-[15px] px-7 py-[14px] shrink-0">
+          Jetzt anrufen
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- KONTAKT-FORMULAR / ANFRAGEINFO -->
+  <section class="flex justify-center" aria-labelledby="anfrage-heading">
+    <div class="max-w-content w-full px-4 lg:px-[120px] py-[100px] flex flex-col lg:flex-row gap-20 items-start">
+
+      <!-- Left: Inquiry details -->
+      <div class="flex flex-col gap-4 flex-1">
+        <Label variant="petrol">Kostenlose Beratung</Label>
+        <h2 id="anfrage-heading" class="font-body font-bold text-h3 text-text leading-[1.3]">
+          Zwei Adressen. Ein Team.
+        </h2>
+        <p class="font-body text-large text-text-muted leading-[1.6]">
+          Wir haben freie Kapazitäten. Senden Sie uns einfach Ihre Anfrage – wir melden uns innerhalb eines Werktages. Wir beraten Sie kostenfrei und unverbindlich.
+        </p>
+      </div>
+
+      <!-- Right: Topics + form CTA -->
+      <div class="flex flex-col gap-6 flex-1">
+        <div class="flex flex-col gap-3">
+          {inquiryTopics.map(topic => (
+            <div class="flex gap-3 items-start">
+              <div class="w-2 h-2 bg-petrol-dark/40 rounded-[4px] shrink-0 mt-[9px]"></div>
+              <p class="font-body text-medium text-[#4a4a4a]">{topic}</p>
+            </div>
+          ))}
+        </div>
+        <div class="flex flex-row gap-3 mt-4">
+          <a href="mailto:pflegedienst-sumpf@outlook.de" class="btn btn--primary text-[15px] px-7 py-[14px] w-fit">
+            E-Mail senden
+          </a>
+          <a href="tel:038851389484" class="btn btn--outline-dark text-[15px] px-7 py-[14px] w-fit">
+            Jetzt anrufen
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>

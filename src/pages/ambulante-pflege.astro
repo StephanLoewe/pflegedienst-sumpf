@@ -1,0 +1,173 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import Label from '../components/ui/Label.astro';
+import SectionHeader from '../components/ui/SectionHeader.astro';
+import IconCard from '../components/ui/IconCard.astro';
+import FeatureRow from '../components/ui/FeatureRow.astro';
+import NumberedStep from '../components/ui/NumberedStep.astro';
+
+const historySteps = [
+  {
+    badge: '2021',
+    title: 'Gründung der Senioren-WG',
+    description: 'Wir sind ein familiengeführtes Unternehmen und betreiben seit Dezember 2021 die Senioren-Wohngemeinschaft in Valluhn.',
+    bgColor: 'bg-sweet-tint',
+  },
+  {
+    badge: '2023',
+    title: 'Geburt des Pflegedienstes',
+    description: '2023 haben wir entschieden, das Herz, welches wir in die WG gesteckt haben, auch mit Menschen zu Hause zu teilen.',
+    bgColor: 'bg-petrol-tint',
+  },
+  {
+    badge: 'Heute',
+    title: 'Ihr regionaler Partner',
+    description: 'Qualität, Zuverlässigkeit und Herzenswärme bilden die Grundpfeiler unserer Arbeit.',
+    bgColor: 'bg-[#f1f5f9]',
+  },
+];
+
+const leistungen = [
+  {
+    title: 'Grundpflege',
+    subtitle: '§ 36 SGB XI',
+    description: 'Körperpflege, Ernährung, Mobilität – individuell und liebevoll.',
+    iconSrc: '/icons/icon-pflege.svg',
+    bulletItems: [
+      'Körperpflege: Waschen, Duschen, Baden, Zahnpflege',
+      'Ernährung: Zubereitung, Hilfe bei der Nahrungsaufnahme',
+      'Mobilität: Lagerung, Hilfe beim Aufstehen, Gehen, Transfer',
+    ],
+  },
+  {
+    title: 'Behandlungspflege',
+    subtitle: '§ 37 SGB V',
+    description: 'Medikamente, Wundversorgung, Injektionen und Blutzuckermessung.',
+    iconSrc: '/icons/icon-medicine.svg',
+    bulletItems: [
+      'Medikamentengabe und Überwachung der Einnahme',
+      'Wundversorgung: Verbandswechsel, Wundbeobachtung',
+      'Injektionen, Blutzuckermessung, Katheterpflege',
+    ],
+  },
+  {
+    title: 'Hauswirtschaftliche Versorgung',
+    description: 'Reinigung, Wäschepflege, Einkäufe und Mahlzeiten.',
+    iconSrc: '/icons/icon-support.svg',
+    bulletItems: [
+      'Reinigung der Wohnung',
+      'Wäschepflege: Waschen, Bügeln, Einräumen',
+      'Einkäufe erledigen, Zubereitung einfacher Mahlzeiten',
+    ],
+  },
+  {
+    title: 'Betreuungsleistungen',
+    description: 'Spaziergänge, Gespräche, Begleitung zu Terminen, Tagesstrukturierung.',
+    iconSrc: '/icons/icon-community.svg',
+    bulletItems: [
+      'Spaziergänge, Vorlesen, Gespräche, Beschäftigungsangebote',
+      'Begleitung zu Terminen, Tagesstrukturierung',
+      'Beaufsichtigung bei Weglaufgefährdung oder Unruhe',
+    ],
+  },
+];
+
+const teamQualifikationen = [
+  'Pflegefachkraft',
+  'Präsenzkraft',
+  'Seniorenassistenten',
+  'Palliativfachkraft',
+  'Examinierte Pflegefachkraft',
+];
+---
+
+<BaseLayout
+  title="Ambulante Pflege"
+  description="Ambulanter Pflegedienst Sumpf – liebevolle Pflege zu Hause in Zarrentin und Umgebung. Grundpflege, Behandlungspflege, Hauswirtschaft und Betreuung."
+>
+  <Header activePage="ambulante-pflege" />
+
+  <!-- SUBHERO -->
+  <section class="flex flex-col gap-4 items-center py-20 px-4 lg:px-[120px] text-center" aria-label="Seiteneinleitung">
+    <Label variant="petrol">Zarrentin & Umgebung</Label>
+    <h1 class="font-headline font-extrabold text-h1 text-petrol-accessible leading-[1.15] max-w-[700px]">
+      Ambulante Pflege zu Hause
+    </h1>
+    <p class="font-body text-large text-text-muted leading-[1.7] max-w-[690px]">
+      Manchmal tritt der Pflegefall plötzlich und unerwartet ein, oft ist es nur das fortschreitende Alter. Der ambulante Pflegedienst Sumpf lässt Sie damit nicht allein.
+    </p>
+  </section>
+
+  <!-- UNSERE GESCHICHTE -->
+  <section class="flex flex-col gap-12 items-center px-4 lg:px-[120px] py-20" aria-labelledby="geschichte-heading">
+    <SectionHeader
+      label="Unsere Geschichte"
+      title="Pflege mit Herz und Verstand"
+      description="Seit unserer Gründung konzentrieren wir uns auf die exzellente Versorgung unserer Kunden."
+    />
+    <div class="flex flex-col md:flex-row gap-6 w-full max-w-content">
+      {historySteps.map(step => (
+        <NumberedStep
+          badge={step.badge}
+          title={step.title}
+          description={step.description}
+          bgColor={step.bgColor}
+        />
+      ))}
+    </div>
+  </section>
+
+  <!-- LEISTUNGSDETAILS -->
+  <section class="flex justify-center" aria-labelledby="leistungen-heading">
+    <div class="bg-bg-shade max-w-content w-full px-4 lg:px-[120px] py-[100px]">
+      <div class="flex flex-col gap-16">
+        <div>
+          <SectionHeader
+            label="Leistungsspektrum"
+            labelVariant="dark"
+            title="Unsere Pflegeleistungen im Überblick"
+            titleVariant="dark"
+            description="Umfassende ambulante Versorgung – genau abgestimmt auf Ihre individuelle Situation."
+            align="left"
+            maxWidth="max-w-[720px]"
+          />
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {leistungen.map(l => (
+            <IconCard
+              title={l.title}
+              subtitle={l.subtitle}
+              description={l.description}
+              bulletItems={l.bulletItems}
+              iconSrc={l.iconSrc}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUALIFIKATION / TEAM -->
+  <section class="flex justify-center" aria-labelledby="team-heading">
+    <div class="bg-petrol-dark max-w-content w-full px-4 lg:px-[120px] py-20 flex flex-col lg:flex-row gap-20 items-start">
+      <div class="flex flex-col gap-4 flex-1">
+        <Label variant="petrol">Unser Team</Label>
+        <h2 id="team-heading" class="font-headline font-extrabold text-h2 text-text-inverted leading-[1.2]">
+          Hoch qualifiziert. Immer für Sie da.
+        </h2>
+        <p class="font-body text-large text-text-inverted leading-[1.7]">
+          Das gesamte Team nimmt regelmäßig an Fort- und Weiterbildungen teil.
+        </p>
+      </div>
+      <div class="flex flex-col gap-3 flex-1">
+        {teamQualifikationen.map(qual => (
+          <FeatureRow text={qual} variant="white" />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>

@@ -1,0 +1,18 @@
+---
+interface Props {
+  text: string;
+  variant?: 'default' | 'white';
+  iconSrc?: string;
+}
+
+const { text, variant = 'default', iconSrc = '/icons/check.svg' } = Astro.props;
+---
+
+<div class="feature-row">
+  <span class={`feature-row__check ${variant === 'white' ? 'feature-row__check--white' : ''}`} aria-hidden="true">
+    <img src={iconSrc} alt="" width="10" height="10" />
+  </span>
+  <span class={`feature-row__text ${variant === 'white' ? 'feature-row__text--white' : ''}`}>
+    {text}
+  </span>
+</div>

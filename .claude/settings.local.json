@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__plugin_figma_figma__get_design_context",
+      "Bash(npm create *)",
+      "Bash(npm --version)",
+      "Bash(npm install *)",
+      "Bash(sudo chown -R 502:20 \"/Users/stephanloewe/.npm\")",
+      "Bash(curl *)",
+      "Bash(mkdir -p /Users/stephanloewe/Repositories/pflegedienst-sumpf/public/fonts)",
+      "Bash(wait)",
+      "Bash(mv \"Type=Animal.svg\"          icon-animal.svg)",
+      "Bash(mv \"Type=Behindertengerecht.svg\" icon-accessible.svg)",
+      "Bash(mv \"Type=Brain.svg\"           icon-brain.svg)",
+      "Bash(mv \"Type=Care.svg\"            icon-care.svg)",
+      "Bash(mv \"Type=Chevron Right.svg\"   icon-chevron-right.svg)"
+    ]
+  }
+}

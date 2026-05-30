@@ -1,0 +1,29 @@
+---
+interface Props {
+  label: string;
+  value: string;
+  variant?: 'default' | 'white';
+  iconBg?: string;
+  href?: string;
+}
+
+const { label, value, variant = 'default', iconBg = 'bg-petrol-tint', href } = Astro.props;
+---
+
+<div class="contact-row">
+  <div class={`contact-row__icon ${iconBg}`} aria-hidden="true"></div>
+  <div>
+    <p class={`contact-row__label ${variant === 'white' ? 'contact-row__label--white' : ''}`}>
+      {label}
+    </p>
+    {href ? (
+      <a href={href} class={`contact-row__value hover:underline ${variant === 'white' ? 'contact-row__value--white' : ''}`}>
+        {value}
+      </a>
+    ) : (
+      <p class={`contact-row__value ${variant === 'white' ? 'contact-row__value--white' : ''}`}>
+        {value}
+      </p>
+    )}
+  </div>
+</div>

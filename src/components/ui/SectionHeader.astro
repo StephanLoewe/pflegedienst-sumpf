@@ -1,0 +1,39 @@
+---
+interface Props {
+  label: string;
+  labelVariant?: 'petrol' | 'sweet' | 'dark';
+  title: string;
+  titleVariant?: 'petrol' | 'dark' | 'white' | 'petrol-dark';
+  description?: string;
+  descVariant?: 'muted' | 'white';
+  align?: 'left' | 'center';
+  maxWidth?: string;
+}
+
+const {
+  label,
+  labelVariant = 'petrol',
+  title,
+  titleVariant = 'petrol',
+  description,
+  descVariant = 'muted',
+  align = 'center',
+  maxWidth = 'max-w-[720px]',
+} = Astro.props;
+
+const titleClasses = {
+  petrol: 'section-header__title',
+  dark: 'section-header__title section-header__title--dark',
+  white: 'section-header__title section-header__title--white',
+  'petrol-dark': 'section-header__title section-header__title--petrol-dark',
+}[titleVariant];
+
+const descClasses = descVariant === 'white' ? 'section-header__desc section-header__desc--white' : 'section-header__desc';
+const alignClass = align === 'center' ? 'section-header--center' : '';
+---
+
+<div class={`section-header ${alignClass} ${maxWidth}`}>
+  <span class={`label label--${labelVariant}`}>{label}</span>
+  <h2 class={`${titleClasses} text-h2 font-headline font-extrabold`}>{title}</h2>
+  {description && <p class={descClasses}>{description}</p>}
+</div>

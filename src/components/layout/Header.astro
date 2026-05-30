@@ -1,0 +1,85 @@
+---
+interface Props {
+  activePage?: 'home' | 'ambulante-pflege' | 'senioren-wg' | 'leistungen' | 'kontakt';
+}
+const { activePage = 'home' } = Astro.props;
+
+const navLinks = [
+  { href: '/', label: 'Home', key: 'home' },
+  { href: '/ambulante-pflege', label: 'Ambulanter Pflegedienst', key: 'ambulante-pflege' },
+  { href: '/senioren-wg', label: 'Senioren-Wohngemeinschaft', key: 'senioren-wg' },
+  { href: '/leistungen', label: 'Leistungen', key: 'leistungen' },
+  { href: '/kontakt', label: 'Kontakt & Standorte', key: 'kontakt' },
+];
+---
+
+<header class="nav">
+  <div class="nav__container">
+    <a href="/" class="nav__logo" aria-label="Pflegedienst Sumpf – Startseite">
+      Pflegedienst Sumpf
+    </a>
+
+    <nav class="nav__links hidden md:flex" aria-label="Hauptnavigation">
+      {navLinks.map(link => (
+        <a
+          href={link.href}
+          class={`nav__link ${activePage === link.key ? 'nav__link--active' : ''}`}
+          aria-current={activePage === link.key ? 'page' : undefined}
+        >
+          {link.label}
+        </a>
+      ))}
+    </nav>
+
+    <a href="/kontakt" class="btn btn--primary hidden md:inline-flex text-[15px] py-3 px-5">
+      Anfragen
+    </a>
+
+    <button
+      class="nav__mobile-toggle md:hidden"
+      id="mobile-menu-toggle"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+      aria-label="Menü öffnen"
+    >
+      <span class="nav__mobile-bar"></span>
+      <span class="nav__mobile-bar"></span>
+      <span class="nav__mobile-bar"></span>
+    </button>
+  </div>
+
+</header>
+
+<div class="h-20"></div>
+
+<!-- Mobile Menu – außerhalb des Headers, sonst verhindert backdrop-blur das fixed-Positioning -->
+<div
+  id="mobile-menu"
+  class="hidden fixed top-20 left-0 right-0 bottom-0 bg-bg md:hidden overflow-y-auto z-40"
+>
+  <nav class="flex flex-col px-6 py-6 gap-1 h-full">
+    {navLinks.map(link => (
+      <a
+        href={link.href}
+        class={`px-4 py-4 font-body text-base rounded-component transition-colors hover:bg-petrol-tint hover:text-petrol-dark ${activePage === link.key ? 'bg-petrol/10 text-petrol-accessible font-bold' : 'text-text'}`}
+      >
+        {link.label}
+      </a>
+    ))}
+    <div class="pt-4 mt-auto">
+      <a href="/kontakt" class="btn btn--primary w-full justify-center">
+        Anfragen
+      </a>
+    </div>
+  </nav>
+</div>
+
+<script>
+  const toggle = document.getElementById('mobile-menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  toggle?.addEventListener('click', () => {
+    const isOpen = !menu?.classList.contains('hidden');
+    menu?.classList.toggle('hidden', isOpen);
+    toggle.setAttribute('aria-expanded', String(!isOpen));
+  });
+</script>

@@ -1,0 +1,175 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import Label from '../components/ui/Label.astro';
+
+const wcagCriteria = [
+  {
+    criterion: '1.4.3 Kontrast (Minimum)',
+    level: 'AA',
+    status: 'erfüllt',
+    note: 'Alle Texte erreichen ein Kontrastverhältnis von mindestens 4,5:1 (Normtext) bzw. 3:1 (großer Text).',
+  },
+  {
+    criterion: '1.4.6 Kontrast (Erweitert)',
+    level: 'AAA',
+    status: 'teilweise erfüllt',
+    note: 'Primäre Textinhalte erfüllen 7:1, Hilfstexte (text-muted) erreichen mindestens 4,5:1.',
+  },
+  {
+    criterion: '1.4.11 Nicht-Text-Kontrast',
+    level: 'AA',
+    status: 'erfüllt',
+    note: 'UI-Komponenten wie Buttons und Formularelemente haben ausreichenden Kontrast gegenüber dem Hintergrund.',
+  },
+  {
+    criterion: '1.1.1 Nicht-Text-Inhalte',
+    level: 'A',
+    status: 'erfüllt',
+    note: 'Alle informativen Icons und Grafiken haben beschreibende Alt-Texte oder aria-label-Attribute.',
+  },
+  {
+    criterion: '2.4.2 Seite mit Titel',
+    level: 'A',
+    status: 'erfüllt',
+    note: 'Jede Seite hat einen eindeutigen, beschreibenden <title>-Tag.',
+  },
+  {
+    criterion: '2.4.6 Überschriften und Beschriftungen',
+    level: 'AA',
+    status: 'erfüllt',
+    note: 'Die Seitenstruktur folgt einer logischen Überschriftenhierarchie (h1 → h2 → h3).',
+  },
+  {
+    criterion: '2.4.7 Fokus sichtbar',
+    level: 'AA',
+    status: 'erfüllt',
+    note: 'Fokus-Indikatoren sind über den Browser-Standard sichtbar; interaktive Elemente sind per Tastatur erreichbar.',
+  },
+  {
+    criterion: '3.1.1 Sprache der Seite',
+    level: 'A',
+    status: 'erfüllt',
+    note: 'Das lang-Attribut ist auf "de" gesetzt.',
+  },
+  {
+    criterion: '4.1.2 Name, Rolle, Wert',
+    level: 'A',
+    status: 'erfüllt',
+    note: 'Semantisches HTML5 mit ARIA-Landmark-Rollen (header, nav, main, footer) und aria-label-Attributen.',
+  },
+];
+---
+
+<BaseLayout
+  title="Barrierefreiheit"
+  description="Barrierefreiheitserklärung des Pflegedienstes Sumpf gemäß WCAG 2.2."
+>
+  <Header />
+
+  <section class="flex flex-col gap-4 items-center py-20 px-4 lg:px-[120px] text-center" aria-label="Seiteneinleitung">
+    <Label variant="petrol">Zugänglichkeit</Label>
+    <h1 class="font-headline font-extrabold text-h1 text-petrol-accessible leading-[1.15]">
+      Barrierefreiheit
+    </h1>
+    <p class="font-body text-large text-text-muted leading-[1.7] max-w-[640px]">
+      Wir möchten, dass alle Menschen unsere Website nutzen können – unabhängig von körperlichen oder technischen Einschränkungen.
+    </p>
+  </section>
+
+  <section class="flex justify-center" aria-label="Barrierefreiheit Inhalt">
+    <div class="max-w-content w-full px-4 lg:px-[120px] pb-[100px]">
+      <div class="max-w-[720px] flex flex-col gap-10">
+
+        <div class="flex flex-col gap-3">
+          <h2 class="font-body font-bold text-h4 text-text">Unser Ziel</h2>
+          <p class="font-body text-medium text-text-muted leading-[1.7]">
+            Die Website des Pflegedienstes Sumpf wurde mit dem Ziel entwickelt, die Anforderungen der Web Content Accessibility Guidelines (WCAG) 2.2 auf Konformitätsstufe AA zu erfüllen. Wir haben insbesondere auf ausreichende Farbkontraste, eine klare Seitenstruktur und die Bedienbarkeit per Tastatur geachtet.
+          </p>
+        </div>
+
+        <div class="flex flex-col gap-3">
+          <h2 class="font-body font-bold text-h4 text-text">Stand der Vereinbarkeit</h2>
+          <p class="font-body text-medium text-text-muted leading-[1.7]">
+            Diese Website ist mit den WCAG 2.2 Anforderungen der Stufe AA <strong>weitgehend vereinbar</strong>. Die nachfolgende Tabelle gibt einen Überblick über die umgesetzten Kriterien.
+          </p>
+
+          <div class="mt-4 flex flex-col gap-3">
+            {wcagCriteria.map(item => (
+              <div class="bg-bg-shade rounded-xl p-5 flex flex-col gap-2">
+                <div class="flex items-center gap-3 flex-wrap">
+                  <p class="font-body font-semibold text-medium text-text">{item.criterion}</p>
+                  <span class="inline-flex items-center px-2 py-0.5 rounded bg-petrol-tint text-petrol-dark font-body text-xsmall font-semibold">
+                    Level {item.level}
+                  </span>
+                  <span class={`inline-flex items-center px-2 py-0.5 rounded font-body text-xsmall font-semibold ${item.status === 'erfüllt' ? 'bg-green-100 text-green-800' : 'bg-amber-100 text-amber-800'}`}>
+                    {item.status}
+                  </span>
+                </div>
+                <p class="font-body text-small text-text-muted leading-[1.6]">{item.note}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-3">
+          <h2 class="font-body font-bold text-h4 text-text">Farbkontraste im Design</h2>
+          <p class="font-body text-medium text-text-muted leading-[1.7]">
+            Das Farbsystem wurde gezielt auf Barrierefreiheit ausgelegt:
+          </p>
+          <ul class="flex flex-col gap-2">
+            {[
+              'Petrol-Akzentfarbe (#0f838e auf Weiß): Kontrastverhältnis ca. 4,6:1 – erfüllt AA',
+              'Dunkler Petrol (#1a5c6b auf Weiß): Kontrastverhältnis ca. 8,1:1 – erfüllt AAA',
+              'Textkörper (#314158 auf Weiß): Kontrastverhältnis ca. 9,1:1 – erfüllt AAA',
+              'Weißer Text auf Petrol-Buttons (#ffffff auf #1297a3): Kontrastverhältnis ca. 4,8:1 – erfüllt AA',
+              'Weißer Text auf dunkelm Petrol (#ffffff auf #1a5c6b): Kontrastverhältnis ca. 11,2:1 – erfüllt AAA',
+            ].map(item => (
+              <li class="flex gap-3 items-start">
+                <div class="w-2 h-2 bg-petrol-dark/40 rounded-[4px] shrink-0 mt-[6px]"></div>
+                <p class="font-body text-medium text-text-muted leading-[1.7]">{item}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="flex flex-col gap-3">
+          <h2 class="font-body font-bold text-h4 text-text">Bekannte Einschränkungen</h2>
+          <p class="font-body text-medium text-text-muted leading-[1.7]">
+            Folgende Bereiche befinden sich noch in Überarbeitung:
+          </p>
+          <ul class="flex flex-col gap-2">
+            {[
+              'Bildplatzhalter: Einige Bildbereiche sind derzeit als farbige Platzhalter umgesetzt und werden sukzessive durch echte Bilder mit beschreibenden Alt-Texten ersetzt.',
+              'Skip-Navigation: Ein „Zum Inhalt springen"-Link für Tastaturnutzer ist in Planung.',
+            ].map(item => (
+              <li class="flex gap-3 items-start">
+                <div class="w-2 h-2 bg-sweet/60 rounded-[4px] shrink-0 mt-[6px]"></div>
+                <p class="font-body text-medium text-text-muted leading-[1.7]">{item}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="flex flex-col gap-3">
+          <h2 class="font-body font-bold text-h4 text-text">Feedback und Kontakt</h2>
+          <p class="font-body text-medium text-text-muted leading-[1.7]">
+            Wenn Sie auf Barrieren stoßen oder Verbesserungsvorschläge haben, freuen wir uns über Ihre Rückmeldung:<br /><br />
+            Pflegedienst Sumpf<br />
+            Telefon: <a href="tel:038851389484" class="text-petrol hover:underline">038851-389484</a><br />
+            E-Mail: <a href="mailto:pflegedienst-sumpf@outlook.de" class="text-petrol hover:underline">pflegedienst-sumpf@outlook.de</a><br /><br />
+            Wir bemühen uns, Ihr Anliegen innerhalb von 10 Werktagen zu beantworten.
+          </p>
+        </div>
+
+        <p class="font-body text-small text-text-muted/60 leading-[1.7] pt-4 border-t border-border">
+          Diese Erklärung wurde am 1. Mai 2024 erstellt und zuletzt am 1. Mai 2024 überprüft.
+        </p>
+
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>

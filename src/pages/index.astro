@@ -1,0 +1,334 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import Label from '../components/ui/Label.astro';
+import SectionHeader from '../components/ui/SectionHeader.astro';
+import IconCard from '../components/ui/IconCard.astro';
+import FeatureRow from '../components/ui/FeatureRow.astro';
+
+const services = [
+  {
+    title: 'Grundpflege',
+    description: 'Körperpflege, Unterstützung bei Ernährung und Mobilisation – individuell und liebevoll.',
+    iconSrc: '/icons/icon-pflege.svg',
+    bulletItems: [
+      'Körperpflege: Waschen, Duschen, Baden, Zahnpflege',
+      'Ernährung: Zubereitung, Hilfe bei der Nahrungsaufnahme',
+      'Mobilität: Lagerung, Hilfe beim Aufstehen, Transfer',
+    ],
+  },
+  {
+    title: 'Behandlungspflege',
+    description: 'Medikamentengabe, Wundversorgung, Injektionen und Blutzuckermessung.',
+    iconSrc: '/icons/icon-medicine.svg',
+    bulletItems: [
+      'Medikamentengabe und Überwachung der Einnahme',
+      'Wundversorgung: Verbandswechsel, Wundbeobachtung',
+      'Injektionen, Blutzuckermessung, Katheterpflege',
+    ],
+  },
+  {
+    title: 'Hauswirtschaftliche Versorgung',
+    description: 'Reinigung, Wäschepflege, Einkäufe und Mahlzeiten.',
+    iconSrc: '/icons/icon-support.svg',
+    bulletItems: [
+      'Reinigung der Wohnung',
+      'Wäschepflege: Waschen, Bügeln, Einräumen',
+      'Einkäufe erledigen, Zubereitung einfacher Mahlzeiten',
+    ],
+  },
+  {
+    title: 'Betreuung',
+    description: 'Spaziergänge, Gespräche, Vorlesen, Begleitung zu Terminen.',
+    iconSrc: '/icons/icon-community.svg',
+    bulletItems: [
+      'Spaziergänge, Vorlesen, Gespräche für Lebensqualität',
+      'Begleitung zu Terminen, Beschäftigungsangebote',
+      'Beaufsichtigung bei Weglaufgefährdung',
+    ],
+  },
+  {
+    title: 'Pflegeberatung & Antragsstellung',
+    description: 'Begleitung bei Pflegegradanträgen und Klärung aller Pflegekassen-Leistungen.',
+    iconSrc: '/icons/icon-documents.svg',
+    bulletItems: [
+      'Pflegegradantrag stellen und Höherstufung beantragen',
+      'Beratung zu allen SGB XI/V Leistungen',
+      'Direktabrechnung mit der Pflegekasse',
+    ],
+  },
+  {
+    title: '24h-Versorgung & Verhinderungspflege',
+    description: 'Rundum-Betreuung und Verhinderungspflege bei Auszeiten für Angehörige.',
+    iconSrc: '/icons/icon-care.svg',
+    bulletItems: [
+      'Rund-um-die-Uhr Notfallnummer',
+      'Verhinderungspflege für Angehörige',
+      'Individuelle Pflegeplanung',
+    ],
+  },
+];
+
+const wgFeatures = [
+  'Kompressionsstrümpfe an-/ausziehen',
+  'Ihr Zimmer, Ihre Regeln – eigene Möbel, TV & Internet, Haustiere willkommen',
+  'Gemeinschaft & Selbstbestimmung – Kochen, Garten, Hochbeete, Grillabende',
+  'Flexible Vertragsgestaltung – Miet-, Präsenzkraft- und Pflegevertrag getrennt wählbar',
+];
+
+const values = [
+  { icon: '/icons/icon-heart-brand.svg', title: 'Mit Herz', desc: 'Unsere Mitarbeiter arbeiten mit echter Zuneigung und Empathie für jeden Einzelnen.' },
+  { icon: '/icons/icon-pflege.svg', title: 'Qualität', desc: 'Hoch qualifiziertes Team mit regelmäßigen Weiterbildungen – immer auf dem neuesten Stand.' },
+  { icon: '/icons/icon-care.svg', title: 'Zuverlässigkeit', desc: 'Als regionaler Partner stehen wir verlässlich an Ihrer Seite – auch im 24h-Notfall.' },
+  { icon: '/icons/icon-community.svg', title: 'Familiennähe', desc: 'Als Familienbetrieb begleiten wir nicht nur Klienten, sondern auch deren Angehörige.' },
+];
+---
+
+<BaseLayout title="Ambulante Pflege & Senioren-WG">
+  <Header activePage="home" />
+
+  <!-- HERO -->
+  <section class="flex flex-col lg:flex-row gap-16 items-center max-w-content mx-auto px-4 lg:px-[120px] pt-[100px] pb-20" aria-label="Willkommensbereich">
+    <div class="flex flex-col gap-6 lg:max-w-[536px]">
+      <Label variant="petrol">Familiengeführt seit 2021 – Zarrentin & Umgebung</Label>
+      <h1 class="font-headline font-extrabold text-h1 text-petrol-accessible leading-[1.15]">
+        Pflege mit Herz und Verstand
+      </h1>
+      <p class="font-body text-[18px] text-[#4a4a4a] leading-[1.7]">
+        Wir begleiten Sie und Ihre Liebsten – mit ambulanter Pflege zu Hause und einem liebevollen Zuhause in unserer Senioren-Wohngemeinschaft in Valluhn.
+      </p>
+      <div class="flex flex-wrap gap-4">
+        <a href="/kontakt" class="btn btn--primary text-[15px] px-7 py-[14px]">
+          Kostenlos beraten lassen
+        </a>
+        <a href="https://wa.me/4903885128977" class="btn btn--whatsapp text-[15px] px-7 py-[14px]" rel="noopener">
+          WhatsApp Anfrage
+        </a>
+      </div>
+    </div>
+
+    <div class="flex-1 relative">
+      <div class="bg-petrol-tint h-[390px] rounded-card overflow-hidden flex items-center justify-center">
+        <p class="font-body text-sm text-petrol-dark/60 text-center">Hero-Bild hier einfügen</p>
+      </div>
+      <!-- Stats -->
+      <div class="absolute bottom-[-24px] left-0 right-0 flex gap-6 justify-center px-4">
+        <div class="stat-card">
+          <div class="stat-card__icon bg-petrol-tint">
+            <img src="/icons/heart.svg" alt="" width="22" height="22" aria-hidden="true" />
+          </div>
+          <div>
+            <p class="stat-card__label">Pflegegrade</p>
+            <p class="stat-card__value">Alle Grade – § 36 SGB XI</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card__icon bg-sweet-tint">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M10 2C10 2 3 6 3 12C3 15.3 6.1 18 10 18C13.9 18 17 15.3 17 12C17 6 10 2 10 2Z" stroke="#e06b2a" stroke-width="1.5" fill="none"/>
+            </svg>
+          </div>
+          <div>
+            <p class="stat-card__label">Erreichbarkeit</p>
+            <p class="stat-card__value">24h Notfallnummer</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ANGEBOTE -->
+  <section class="flex flex-col gap-16 items-center px-4 lg:px-[120px] py-[100px]" aria-labelledby="angebote-heading">
+    <SectionHeader
+      label="Unsere Angebote"
+      title="Zwei Wege, eine Mission"
+      description="Ob zu Hause oder bei uns – wir sorgen dafür, dass jeder Mensch würdevoll und selbstbestimmt leben kann."
+    />
+
+    <div class="flex flex-col lg:flex-row gap-8 max-w-content w-full">
+      <!-- Ambulante Pflege Card -->
+      <div class="flex-1 bg-petrol-accessible rounded-card overflow-hidden">
+        <div class="bg-white/10 h-[280px] flex items-center justify-center">
+          <p class="font-body text-xs text-white/40 text-center px-8">Bild Ambulante Pflege zu Hause</p>
+        </div>
+        <div class="p-9 flex flex-col gap-3">
+          <p class="font-body font-semibold text-label text-white/50 uppercase tracking-[0.66px]">Zarrentin & Umgebung</p>
+          <h3 class="font-headline font-extrabold text-[28px] text-white leading-[1.3]">
+            Ambulante Pflege zu Hause
+          </h3>
+          <p class="font-body text-medium text-white/75 leading-[1.7]">
+            Plötzlicher Pflegefall oder fortschreitendes Alter – wir lassen Sie nicht allein. Wir erstellen gemeinsam Ihr individuelles Pflegekonzept und rechnen direkt mit Ihrer Pflegekasse ab.
+          </p>
+          <div class="pt-4">
+            <a href="/ambulante-pflege" class="btn btn--ghost-white text-[15px] px-5 py-[10px]">
+              Alle Leistungen ansehen →
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Senioren-WG Card -->
+      <div class="flex-1 bg-sweet-tint rounded-card overflow-hidden">
+        <div class="bg-white/10 h-[280px] flex items-center justify-center">
+          <p class="font-body text-xs text-sweet-dark/40 text-center px-8">Bild Senioren-WG Sweet Home</p>
+        </div>
+        <div class="p-9 flex flex-col gap-3">
+          <p class="font-body font-semibold text-label text-sweet-dark uppercase tracking-[0.66px]">Valluhn – Dorfstrasse 2</p>
+          <h3 class="font-headline font-extrabold text-[28px] text-sweet-dark leading-[1.3]">
+            Senioren-WG Sweet Home
+          </h3>
+          <p class="font-body text-medium text-text-muted leading-[1.7]">
+            Besser gemeinsam statt einsam. Unser liebevoll gestaltetes Zuhause für bis zu 8 pflegebedürftige Senioren – mit 24h-Betreuung, Dachterrasse, Fahrstuhl und echtem Gemeinschaftsgefühl.
+          </p>
+          <div class="pt-4">
+            <a href="/senioren-wg" class="btn btn--sweet text-[15px] px-5 py-[10px]">
+              Mehr über die WG →
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEISTUNGEN -->
+  <section class="flex justify-center" aria-labelledby="leistungen-heading">
+    <div class="bg-bg-shade max-w-content w-full px-4 lg:px-[120px] py-[100px]">
+      <div class="flex flex-col gap-16 items-center">
+        <SectionHeader
+          label="Was wir leisten"
+          title="Rundum versorgt"
+          description="Von der Grundpflege bis zur medizinischen Behandlung – ein umfassendes Leistungsspektrum aus einer Hand."
+        />
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
+          {services.map(service => (
+            <IconCard
+              title={service.title}
+              description={service.description}
+              bulletItems={service.bulletItems}
+              iconSrc={service.iconSrc}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SENIOREN-WG SPLIT -->
+  <section class="flex justify-center py-20 px-4 lg:px-[120px]" aria-labelledby="wg-heading">
+    <div class="flex flex-col lg:flex-row gap-20 items-center max-w-content w-full">
+      <div class="bg-bg-shade h-[420px] rounded-section lg:w-[560px] shrink-0 flex items-center justify-center">
+        <p class="font-body text-sm text-petrol-dark/50 text-center px-8">Bild Senioren-WG Sweet Home</p>
+      </div>
+      <div class="flex flex-col gap-4 max-w-[548px]">
+        <Label variant="sweet">Senioren-WG Valluhn</Label>
+        <h2 id="wg-heading" class="font-headline font-extrabold text-h2 text-petrol-dark leading-[1.2]">
+          Gemeinsam statt einsam – das Sweet Home
+        </h2>
+        <p class="font-body text-large text-text-muted leading-[1.6]">
+          Unsere Senioren-Wohngemeinschaft in Valluhn bietet bis zu 8 pflegebedürftigen Menschen ein echtes Zuhause – liebevoll, beschützt und mit Charakter.
+        </p>
+        {wgFeatures.map(feature => (
+          <FeatureRow text={feature} />
+        ))}
+        <div class="pt-2">
+          <a href="/senioren-wg" class="btn btn--primary text-[15px] px-7 py-[14px]">
+            Freie Plätze anfragen
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WERTE -->
+  <section class="flex justify-center" aria-labelledby="werte-heading">
+    <div class="bg-petrol-dark max-w-content w-full px-4 lg:px-[120px] py-[100px]">
+      <div class="flex flex-col gap-16 items-center">
+        <SectionHeader
+          label="Unsere Werte"
+          labelVariant="dark"
+          title="Der Mensch im Mittelpunkt"
+          titleVariant="white"
+          description="Wir glauben, dass jeder Mensch – ungeachtet seines Alters – ein würdevolles und selbstbestimmtes Leben verdient."
+          descVariant="white"
+        />
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 w-full max-w-[1200px]">
+          {values.map(value => (
+            <div class="flex flex-col items-center text-center gap-5">
+              <div class="flex items-center justify-center w-14 h-14 bg-white/10 border border-white/15 rounded-xl">
+                <img src={value.icon} alt="" width="28" height="28" aria-hidden="true" class="brightness-0 invert" />
+              </div>
+              <h3 class="font-headline font-extrabold text-xl text-white">{value.title}</h3>
+              <p class="font-body text-small text-white/60 leading-[1.7]">{value.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KONTAKT -->
+  <section class="flex flex-col lg:flex-row gap-20 max-w-content mx-auto px-4 lg:px-[120px] py-[100px]" aria-labelledby="kontakt-heading">
+    <div class="flex flex-col gap-4 lg:max-w-[500px]">
+      <Label variant="petrol">Kontakt</Label>
+      <h2 id="kontakt-heading" class="font-headline font-extrabold text-h2 text-text leading-[1.2]">
+        Wir sind für Sie da
+      </h2>
+      <p class="font-body text-large text-text-muted leading-[1.7]">
+        Frau Sumpf und ihr Team antworten schnell und persönlich – ob Pflegeberatung, freie Zimmer oder individuelle Anfragen.
+      </p>
+    </div>
+
+    <div class="flex-1 flex flex-col gap-6">
+      <div class="flex flex-col gap-4 pb-6">
+        <div class="contact-row">
+          <div class="contact-row__icon bg-petrol-tint" aria-hidden="true">
+            <img src="/icons/icon-location.svg" alt="" width="20" height="20" aria-hidden="true" />
+          </div>
+          <div>
+            <p class="contact-row__label">Adresse</p>
+            <p class="contact-row__value">Bahnhofstraße 9, 19246 Zarrentin</p>
+          </div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-row__icon bg-petrol-tint" aria-hidden="true">
+            <img src="/icons/icon-phone.svg" alt="" width="20" height="20" aria-hidden="true" />
+          </div>
+          <div>
+            <p class="contact-row__label">Telefon</p>
+            <a href="tel:038851389484" class="contact-row__value hover:text-petrol transition-colors">038851-389484 | 038851-389485</a>
+          </div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-row__icon bg-petrol-tint" aria-hidden="true">
+            <img src="/icons/icon-mail.svg" alt="" width="20" height="20" aria-hidden="true" />
+          </div>
+          <div>
+            <p class="contact-row__label">E-Mail</p>
+            <a href="mailto:pflegedienst-sumpf@outlook.de" class="contact-row__value hover:text-petrol transition-colors">pflegedienst-sumpf@outlook.de</a>
+          </div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-row__icon bg-petrol-tint" aria-hidden="true">
+            <img src="/icons/icon-wg.svg" alt="" width="20" height="20" aria-hidden="true" />
+          </div>
+          <div>
+            <p class="contact-row__label">WG Sweet Home</p>
+            <p class="contact-row__value">Dorfstraße 2, 19246 Valluhn – 0178-672 88 20</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Notfall Banner -->
+      <div class="bg-sweet-tint border border-sweet-accessible/20 rounded-xl p-6 flex items-center gap-4">
+        <div class="flex items-center justify-center w-11 h-11 bg-sweet-accessible rounded-[10px] shrink-0 text-white font-bold text-xl" aria-hidden="true">!</div>
+        <div>
+          <p class="font-body font-semibold text-sweet-accessible text-xsmall uppercase tracking-wider">Notfallnummer 24h</p>
+          <a href="tel:038851289776" class="font-body font-bold text-[20px] text-[#1a1a1a] hover:text-sweet-accessible transition-colors">038851-289776</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>

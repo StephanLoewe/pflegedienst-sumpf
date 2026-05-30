@@ -1,0 +1,64 @@
+---
+const navLinks = [
+  { href: '/ambulante-pflege', label: 'Ambulante Pflege' },
+  { href: '/senioren-wg', label: 'Senioren-WG' },
+  { href: '/leistungen', label: 'Leistungen' },
+  { href: '/kontakt', label: 'Kontakt' },
+];
+---
+
+<footer class="footer">
+  <div class="footer__container">
+    <div class="footer__top flex flex-col lg:flex-row gap-10 lg:gap-0">
+      <div class="footer__brand">
+        <p class="footer__logo">Pflegedienst Sumpf</p>
+        <p class="footer__tagline">
+          Familiengeführte Pflege mit Herz und Verstand - seit 2021 verlässlicher Partner in Zarrentin und Umgebung.
+        </p>
+      </div>
+
+      <div class="footer__cols flex-1 flex flex-col lg:flex-row lg:flex-wrap lg:justify-end gap-10 lg:gap-12">
+        <div class="footer__col">
+          <p class="footer__col-title">Navigation</p>
+          <ul class="footer__col-links">
+            {navLinks.map(link => (
+              <li>
+                <a href={link.href} class="footer__col-link">{link.label}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <p class="footer__col-title">Kontakt</p>
+          <ul class="footer__col-links">
+            <li class="font-body text-small text-text-muted">038851-389484</li>
+            <li>
+              <a href="mailto:pflegedienst-sumpf@outlook.de" class="footer__col-link">
+                pflegedienst-sumpf@outlook.de
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <p class="footer__col-title">Notfall 24h</p>
+          <div class="mt-4">
+            <a href="tel:038851289776" class="footer__emergency">
+              038851-289776
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer__bottom mt-8 flex-col gap-3 lg:flex-row lg:gap-0">
+      <p class="footer__copy">2024 Pflegedienst Sumpf – Bahnhofstrasse 9 – 19246 Zarrentin</p>
+      <div class="footer__legal">
+        <a href="/impressum" class="footer__legal-link">Impressum</a>
+        <a href="/datenschutz" class="footer__legal-link">Datenschutz</a>
+        <a href="/barrierefreiheit" class="footer__legal-link">Barrierefreiheit</a>
+      </div>
+    </div>
+  </div>
+</footer>
