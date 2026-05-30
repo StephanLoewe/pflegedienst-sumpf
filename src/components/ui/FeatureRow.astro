@@ -5,7 +5,7 @@ interface Props {
   iconSrc?: string;
 }
 
-const { text, variant = 'default', iconSrc = '/icons/check.svg' } = Astro.props;
+const { text, variant = 'default', iconSrc = import.meta.env.BASE_URL + 'icons/check.svg' } = Astro.props;
 ---
 
 <div class="feature-row">

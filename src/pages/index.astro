@@ -7,11 +7,13 @@ import SectionHeader from '../components/ui/SectionHeader.astro';
 import IconCard from '../components/ui/IconCard.astro';
 import FeatureRow from '../components/ui/FeatureRow.astro';
 
+const base = import.meta.env.BASE_URL;
+
 const services = [
   {
     title: 'Grundpflege',
     description: 'Körperpflege, Unterstützung bei Ernährung und Mobilisation – individuell und liebevoll.',
-    iconSrc: '/icons/icon-pflege.svg',
+    iconSrc: base + 'icons/icon-pflege.svg',
     bulletItems: [
       'Körperpflege: Waschen, Duschen, Baden, Zahnpflege',
       'Ernährung: Zubereitung, Hilfe bei der Nahrungsaufnahme',
@@ -21,7 +23,7 @@ const services = [
   {
     title: 'Behandlungspflege',
     description: 'Medikamentengabe, Wundversorgung, Injektionen und Blutzuckermessung.',
-    iconSrc: '/icons/icon-medicine.svg',
+    iconSrc: base + 'icons/icon-medicine.svg',
     bulletItems: [
       'Medikamentengabe und Überwachung der Einnahme',
       'Wundversorgung: Verbandswechsel, Wundbeobachtung',
@@ -31,7 +33,7 @@ const services = [
   {
     title: 'Hauswirtschaftliche Versorgung',
     description: 'Reinigung, Wäschepflege, Einkäufe und Mahlzeiten.',
-    iconSrc: '/icons/icon-support.svg',
+    iconSrc: base + 'icons/icon-support.svg',
     bulletItems: [
       'Reinigung der Wohnung',
       'Wäschepflege: Waschen, Bügeln, Einräumen',
@@ -41,7 +43,7 @@ const services = [
   {
     title: 'Betreuung',
     description: 'Spaziergänge, Gespräche, Vorlesen, Begleitung zu Terminen.',
-    iconSrc: '/icons/icon-community.svg',
+    iconSrc: base + 'icons/icon-community.svg',
     bulletItems: [
       'Spaziergänge, Vorlesen, Gespräche für Lebensqualität',
       'Begleitung zu Terminen, Beschäftigungsangebote',
@@ -51,7 +53,7 @@ const services = [
   {
     title: 'Pflegeberatung & Antragsstellung',
     description: 'Begleitung bei Pflegegradanträgen und Klärung aller Pflegekassen-Leistungen.',
-    iconSrc: '/icons/icon-documents.svg',
+    iconSrc: base + 'icons/icon-documents.svg',
     bulletItems: [
       'Pflegegradantrag stellen und Höherstufung beantragen',
       'Beratung zu allen SGB XI/V Leistungen',
@@ -61,7 +63,7 @@ const services = [
   {
     title: '24h-Versorgung & Verhinderungspflege',
     description: 'Rundum-Betreuung und Verhinderungspflege bei Auszeiten für Angehörige.',
-    iconSrc: '/icons/icon-care.svg',
+    iconSrc: base + 'icons/icon-care.svg',
     bulletItems: [
       'Rund-um-die-Uhr Notfallnummer',
       'Verhinderungspflege für Angehörige',
@@ -78,10 +80,10 @@ const wgFeatures = [
 ];
 
 const values = [
-  { icon: '/icons/icon-heart-brand.svg', title: 'Mit Herz', desc: 'Unsere Mitarbeiter arbeiten mit echter Zuneigung und Empathie für jeden Einzelnen.' },
-  { icon: '/icons/icon-pflege.svg', title: 'Qualität', desc: 'Hoch qualifiziertes Team mit regelmäßigen Weiterbildungen – immer auf dem neuesten Stand.' },
-  { icon: '/icons/icon-care.svg', title: 'Zuverlässigkeit', desc: 'Als regionaler Partner stehen wir verlässlich an Ihrer Seite – auch im 24h-Notfall.' },
-  { icon: '/icons/icon-community.svg', title: 'Familiennähe', desc: 'Als Familienbetrieb begleiten wir nicht nur Klienten, sondern auch deren Angehörige.' },
+  { icon: base + 'icons/icon-heart-brand.svg', title: 'Mit Herz', desc: 'Unsere Mitarbeiter arbeiten mit echter Zuneigung und Empathie für jeden Einzelnen.' },
+  { icon: base + 'icons/icon-pflege.svg', title: 'Qualität', desc: 'Hoch qualifiziertes Team mit regelmäßigen Weiterbildungen – immer auf dem neuesten Stand.' },
+  { icon: base + 'icons/icon-care.svg', title: 'Zuverlässigkeit', desc: 'Als regionaler Partner stehen wir verlässlich an Ihrer Seite – auch im 24h-Notfall.' },
+  { icon: base + 'icons/icon-community.svg', title: 'Familiennähe', desc: 'Als Familienbetrieb begleiten wir nicht nur Klienten, sondern auch deren Angehörige.' },
 ];
 ---
 
@@ -116,7 +118,7 @@ const values = [
       <div class="absolute bottom-[-24px] left-0 right-0 flex gap-6 justify-center px-4">
         <div class="stat-card">
           <div class="stat-card__icon bg-petrol-tint">
-            <img src="/icons/heart.svg" alt="" width="22" height="22" aria-hidden="true" />
+            <img src={base + 'icons/heart.svg'} alt="" width="22" height="22" aria-hidden="true" />
           </div>
           <div>
             <p class="stat-card__label">Pflegegrade</p>
@@ -283,7 +285,7 @@ const values = [
       <div class="flex flex-col gap-4 pb-6">
         <div class="contact-row">
           <div class="contact-row__icon bg-petrol-tint" aria-hidden="true">
-            <img src="/icons/icon-location.svg" alt="" width="20" height="20" aria-hidden="true" />
+            <img src={base + 'icons/icon-location.svg'} alt="" width="20" height="20" aria-hidden="true" />
           </div>
           <div>
             <p class="contact-row__label">Adresse</p>
@@ -292,7 +294,7 @@ const values = [
         </div>
         <div class="contact-row">
           <div class="contact-row__icon bg-petrol-tint" aria-hidden="true">
-            <img src="/icons/icon-phone.svg" alt="" width="20" height="20" aria-hidden="true" />
+            <img src={base + 'icons/icon-phone.svg'} alt="" width="20" height="20" aria-hidden="true" />
           </div>
           <div>
             <p class="contact-row__label">Telefon</p>
@@ -301,7 +303,7 @@ const values = [
         </div>
         <div class="contact-row">
           <div class="contact-row__icon bg-petrol-tint" aria-hidden="true">
-            <img src="/icons/icon-mail.svg" alt="" width="20" height="20" aria-hidden="true" />
+            <img src={base + 'icons/icon-mail.svg'} alt="" width="20" height="20" aria-hidden="true" />
           </div>
           <div>
             <p class="contact-row__label">E-Mail</p>
@@ -310,7 +312,7 @@ const values = [
         </div>
         <div class="contact-row">
           <div class="contact-row__icon bg-petrol-tint" aria-hidden="true">
-            <img src="/icons/icon-wg.svg" alt="" width="20" height="20" aria-hidden="true" />
+            <img src={base + 'icons/icon-wg.svg'} alt="" width="20" height="20" aria-hidden="true" />
           </div>
           <div>
             <p class="contact-row__label">WG Sweet Home</p>

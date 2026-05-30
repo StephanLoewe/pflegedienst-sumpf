@@ -8,6 +8,8 @@ import IconCard from '../components/ui/IconCard.astro';
 import FeatureRow from '../components/ui/FeatureRow.astro';
 import NumberedStep from '../components/ui/NumberedStep.astro';
 
+const base = import.meta.env.BASE_URL;
+
 const historySteps = [
   {
     badge: '2021',
@@ -34,7 +36,7 @@ const leistungen = [
     title: 'Grundpflege',
     subtitle: '§ 36 SGB XI',
     description: 'Körperpflege, Ernährung, Mobilität – individuell und liebevoll.',
-    iconSrc: '/icons/icon-pflege.svg',
+    iconSrc: base + 'icons/icon-pflege.svg',
     bulletItems: [
       'Körperpflege: Waschen, Duschen, Baden, Zahnpflege',
       'Ernährung: Zubereitung, Hilfe bei der Nahrungsaufnahme',
@@ -45,7 +47,7 @@ const leistungen = [
     title: 'Behandlungspflege',
     subtitle: '§ 37 SGB V',
     description: 'Medikamente, Wundversorgung, Injektionen und Blutzuckermessung.',
-    iconSrc: '/icons/icon-medicine.svg',
+    iconSrc: base + 'icons/icon-medicine.svg',
     bulletItems: [
       'Medikamentengabe und Überwachung der Einnahme',
       'Wundversorgung: Verbandswechsel, Wundbeobachtung',
@@ -55,7 +57,7 @@ const leistungen = [
   {
     title: 'Hauswirtschaftliche Versorgung',
     description: 'Reinigung, Wäschepflege, Einkäufe und Mahlzeiten.',
-    iconSrc: '/icons/icon-support.svg',
+    iconSrc: base + 'icons/icon-support.svg',
     bulletItems: [
       'Reinigung der Wohnung',
       'Wäschepflege: Waschen, Bügeln, Einräumen',
@@ -65,7 +67,7 @@ const leistungen = [
   {
     title: 'Betreuungsleistungen',
     description: 'Spaziergänge, Gespräche, Begleitung zu Terminen, Tagesstrukturierung.',
-    iconSrc: '/icons/icon-community.svg',
+    iconSrc: base + 'icons/icon-community.svg',
     bulletItems: [
       'Spaziergänge, Vorlesen, Gespräche, Beschäftigungsangebote',
       'Begleitung zu Terminen, Tagesstrukturierung',

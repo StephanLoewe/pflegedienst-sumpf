@@ -6,21 +6,23 @@ import Label from '../components/ui/Label.astro';
 import SectionHeader from '../components/ui/SectionHeader.astro';
 import IconCard from '../components/ui/IconCard.astro';
 
+const base = import.meta.env.BASE_URL;
+
 const konzeptCards = [
   {
     title: 'Gemeinschaft & Alltag',
     description: 'Gemeinsam essen, klönen, stricken – die Gemeinschaftsflächen gehören allen.',
-    iconSrc: '/icons/icon-community.svg',
+    iconSrc: base + 'icons/icon-community.svg',
   },
   {
     title: 'Selbstbestimmt leben',
     description: 'Ins Bett wann man möchte, aufstehen wann man ausgeschlafen ist – Ihre Regeln.',
-    iconSrc: '/icons/icon-heart-brand.svg',
+    iconSrc: base + 'icons/icon-heart-brand.svg',
   },
   {
     title: '24h Rundum-Betreuung',
     description: 'Rund um die Uhr betreut – wir haben für jeden genügend Zeit.',
-    iconSrc: '/icons/icon-care.svg',
+    iconSrc: base + 'icons/icon-care.svg',
   },
 ];
 
@@ -28,32 +30,32 @@ const wohlbefindenCards = [
   {
     title: 'Vollständig barrierefrei',
     description: 'Fahrstuhl vom Keller bis ins oberste Geschoss – das gesamte Haus ist barrierefrei.',
-    iconSrc: '/icons/icon-accessible.svg',
+    iconSrc: base + 'icons/icon-accessible.svg',
   },
   {
     title: 'Dachterrasse & Wintergarten',
     description: 'Mit Blick in die Natur oder in der Wärme des Wintergartens gesellig zusammensitzen.',
-    iconSrc: '/icons/icon-rooftop.svg',
+    iconSrc: base + 'icons/icon-rooftop.svg',
   },
   {
     title: 'Ihr Zimmer nach Wunsch',
     description: 'Gestalten Sie Ihr Zimmer mit eigenen Möbeln – TV, Internet und Malerarbeiten nach Wunsch.',
-    iconSrc: '/icons/icon-wg.svg',
+    iconSrc: base + 'icons/icon-wg.svg',
   },
   {
     title: 'Haustiere willkommen',
     description: 'Nach Absprache sind Katzen, Hunde oder Vögel herzlich willkommen.',
-    iconSrc: '/icons/icon-animal.svg',
+    iconSrc: base + 'icons/icon-animal.svg',
   },
   {
     title: 'Garten & Hochbeete',
     description: 'Sitzecken, Hochbeete für eigenes Gemüse und gemeinsame Grillabende erwarten Sie.',
-    iconSrc: '/icons/icon-heart-brand.svg',
+    iconSrc: base + 'icons/icon-heart-brand.svg',
   },
   {
     title: 'Gemeinsame Küche',
     description: 'Gemeinsam kochen und backen – mit so viel Eigenständigkeit wie möglich.',
-    iconSrc: '/icons/icon-community.svg',
+    iconSrc: base + 'icons/icon-community.svg',
   },
 ];
 

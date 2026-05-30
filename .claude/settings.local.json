@@ -19,7 +19,9 @@
       "Bash(git push *)",
       "Bash(npm uninstall *)",
       "Bash(git *)",
-      "Bash(npm run *)"
+      "Bash(npm run *)",
+      "Bash(sed -i '' \"s|iconSrc: '/icons/|iconSrc: base + 'icons/|g\" /Users/stephanloewe/Repositories/pflegedienst-sumpf/src/pages/ambulante-pflege.astro /Users/stephanloewe/Repositories/pflegedienst-sumpf/src/pages/senioren-wg.astro)",
+      "Bash(sed -i '' \"s|icon: '/icons/|icon: base + 'icons/|g\" /Users/stephanloewe/Repositories/pflegedienst-sumpf/src/pages/kontakt.astro)"
     ]
   }
 }
