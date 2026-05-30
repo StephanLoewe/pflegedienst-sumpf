@@ -1,9 +1,11 @@
 ---
+const base = import.meta.env.BASE_URL;
+
 const navLinks = [
-  { href: '/ambulante-pflege', label: 'Ambulante Pflege' },
-  { href: '/senioren-wg', label: 'Senioren-WG' },
-  { href: '/leistungen', label: 'Leistungen' },
-  { href: '/kontakt', label: 'Kontakt' },
+  { href: base + 'ambulante-pflege', label: 'Ambulante Pflege' },
+  { href: base + 'senioren-wg', label: 'Senioren-WG' },
+  { href: base + 'leistungen', label: 'Leistungen' },
+  { href: base + 'kontakt', label: 'Kontakt' },
 ];
 ---
 
@@ -55,9 +57,9 @@ const navLinks = [
     <div class="footer__bottom mt-8 flex-col gap-3 lg:flex-row lg:gap-0">
       <p class="footer__copy">2024 Pflegedienst Sumpf – Bahnhofstrasse 9 – 19246 Zarrentin</p>
       <div class="footer__legal">
-        <a href="/impressum" class="footer__legal-link">Impressum</a>
-        <a href="/datenschutz" class="footer__legal-link">Datenschutz</a>
-        <a href="/barrierefreiheit" class="footer__legal-link">Barrierefreiheit</a>
+        <a href={base + 'impressum'} class="footer__legal-link">Impressum</a>
+        <a href={base + 'datenschutz'} class="footer__legal-link">Datenschutz</a>
+        <a href={base + 'barrierefreiheit'} class="footer__legal-link">Barrierefreiheit</a>
       </div>
     </div>
   </div>

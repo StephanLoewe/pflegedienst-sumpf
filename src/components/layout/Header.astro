@@ -3,19 +3,20 @@ interface Props {
   activePage?: 'home' | 'ambulante-pflege' | 'senioren-wg' | 'leistungen' | 'kontakt';
 }
 const { activePage = 'home' } = Astro.props;
+const base = import.meta.env.BASE_URL;
 
 const navLinks = [
-  { href: '/', label: 'Home', key: 'home' },
-  { href: '/ambulante-pflege', label: 'Ambulanter Pflegedienst', key: 'ambulante-pflege' },
-  { href: '/senioren-wg', label: 'Senioren-Wohngemeinschaft', key: 'senioren-wg' },
-  { href: '/leistungen', label: 'Leistungen', key: 'leistungen' },
-  { href: '/kontakt', label: 'Kontakt & Standorte', key: 'kontakt' },
+  { href: base, label: 'Home', key: 'home' },
+  { href: base + 'ambulante-pflege', label: 'Ambulanter Pflegedienst', key: 'ambulante-pflege' },
+  { href: base + 'senioren-wg', label: 'Senioren-Wohngemeinschaft', key: 'senioren-wg' },
+  { href: base + 'leistungen', label: 'Leistungen', key: 'leistungen' },
+  { href: base + 'kontakt', label: 'Kontakt & Standorte', key: 'kontakt' },
 ];
 ---
 
 <header class="nav">
   <div class="nav__container">
-    <a href="/" class="nav__logo" aria-label="Pflegedienst Sumpf – Startseite">
+    <a href={base} class="nav__logo" aria-label="Pflegedienst Sumpf – Startseite">
       Pflegedienst Sumpf
     </a>
 
@@ -31,7 +32,7 @@ const navLinks = [
       ))}
     </nav>
 
-    <a href="/kontakt" class="btn btn--primary hidden md:inline-flex text-[15px] py-3 px-5">
+    <a href={base + 'kontakt'} class="btn btn--primary hidden md:inline-flex text-[15px] py-3 px-5">
       Anfragen
     </a>
 
@@ -67,7 +68,7 @@ const navLinks = [
       </a>
     ))}
     <div class="pt-4 mt-auto">
-      <a href="/kontakt" class="btn btn--primary w-full justify-center">
+      <a href={base + 'kontakt'} class="btn btn--primary w-full justify-center">
         Anfragen
       </a>
     </div>
